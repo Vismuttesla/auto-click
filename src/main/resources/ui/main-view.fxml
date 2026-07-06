@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<TabPane fx:id="tabs" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abbos.precisiontrigger.ui.MainController">
+    <tabs>
+        <Tab text="Dashboard" closable="false">
+            <BorderPane>
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <top>
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="20"/>
+                            <ColumnConstraints percentWidth="80"/>
+                        </columnConstraints>
+                        <Label text="App State" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="appStateLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="Server Time" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="serverTimeLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Display Zone" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="zoneLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Latency" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="latencyLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" wrapText="true"/>
+                        <Label text="Confidence" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <Label fx:id="confidenceLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Label text="Readiness" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <Label fx:id="readinessLabel" GridPane.rowIndex="5" GridPane.columnIndex="1" wrapText="true"/>
+                        <Label text="Sync Interval" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <Label fx:id="intervalLabel" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                        <Label text="Sync Status" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                        <Label fx:id="syncStatusLabel" GridPane.rowIndex="7" GridPane.columnIndex="1" wrapText="true"/>
+                        <Label text="Auth Status" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                        <Label fx:id="authStatusLabel" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                        <Label text="Target" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                        <Label fx:id="targetLabel" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+                        <Label text="Plan Version" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
+                        <Label fx:id="planVersionLabel" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
+                        <Label text="Execution" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
+                        <Label fx:id="executionStatusLabel" GridPane.rowIndex="11" GridPane.columnIndex="1" wrapText="true"/>
+                    </GridPane>
+                </top>
+                <center>
+                    <VBox spacing="12" style="-fx-padding: 18 0 0 0;">
+                        <HBox spacing="8">
+                            <PasswordField fx:id="tokenField" promptText="Bearer token" HBox.hgrow="ALWAYS"/>
+                            <Button text="Apply Token" onAction="#onApplyToken"/>
+                            <Button text="Clear Token" onAction="#onClearToken"/>
+                            <Button text="Test Authentication" onAction="#onTestAuthentication"/>
+                        </HBox>
+                        <HBox spacing="8">
+                            <TextField fx:id="intervalValueField" promptText="Interval" prefWidth="120"/>
+                            <ComboBox fx:id="intervalUnitBox" prefWidth="140"/>
+                            <Button text="Apply Interval" onAction="#onApplyInterval"/>
+                            <Button text="Sync Now" onAction="#onSyncNow"/>
+                        </HBox>
+                        <HBox spacing="8">
+                            <DatePicker fx:id="targetDatePicker"/>
+                            <TextField fx:id="targetTimeField" promptText="HH:mm:ss.SSS" prefWidth="180"/>
+                            <Button text="ARM TARGET" onAction="#onArmTarget"/>
+                            <Button text="CANCEL" onAction="#onCancelTarget"/>
+                        </HBox>
+                    </VBox>
+                </center>
+            </BorderPane>
+        </Tab>
+        <Tab text="Timing History" closable="false">
+            <TextArea fx:id="historyArea" editable="false" wrapText="true"/>
+        </Tab>
+        <Tab text="Execution Audit" closable="false">
+            <TextArea fx:id="auditArea" editable="false" wrapText="true"/>
+        </Tab>
+        <Tab text="Settings" closable="false">
+            <Label text="Runtime settings are applied live from the dashboard controls." style="-fx-padding: 20;"/>
+        </Tab>
+    </tabs>
+</TabPane>

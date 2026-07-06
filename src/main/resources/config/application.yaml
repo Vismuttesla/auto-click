@@ -1,0 +1,37 @@
+server:
+  time-url: "http://172.16.14.19:5001/api/Cabinet/CheckTimeV2"
+  timestamp:
+    json-pointer: "/data"
+    format: "EPOCH_MILLIS_DECIMAL"
+    semantics: "UNKNOWN"
+  response:
+    success-json-pointer: "/success"
+    error-json-pointer: "/error"
+    expected-success-value: "true"
+http:
+  connect-timeout: "PT3S"
+  request-timeout: "PT2S"
+request:
+  accept: "application/json"
+  content-type: "application/json"
+  user-agent: "SpotAppV2-04092025-Microsoft Windows NT 6.2.9200.0"
+timing:
+  sync-interval: "PT60S"
+  min-sync-interval: "PT5S"
+  max-sync-interval: "PT1H"
+  sample-window-size: 30
+  max-clock-age: "PT3M"
+  minimum-confidence: 0.70
+  final-freeze-window: "PT2S"
+  coarse-threshold: "PT0.05S"
+  spin-threshold: "PT0.002S"
+  default-action-overhead: "PT0S"
+auth:
+  expiring-soon-threshold: "PT5M"
+  unauthorized-backoff: "PT30S"
+logging:
+  directory: "logs"
+  async-queue-capacity: 10000
+  index-on-startup: true
+ui:
+  zone-id: "system"

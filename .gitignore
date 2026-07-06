@@ -1,0 +1,10 @@
+﻿/target/
+/.idea/
+/logs/*.jsonl
+/config/runtime-settings.json
+
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
