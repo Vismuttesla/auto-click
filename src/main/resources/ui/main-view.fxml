@@ -2,7 +2,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<TabPane fx:id="tabs" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abbos.precisiontrigger.ui.MainController">
+<TabPane fx:id="tabs" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.click.precisiontrigger.ui.MainController">
     <tabs>
         <Tab text="Dashboard" closable="false">
             <BorderPane>
